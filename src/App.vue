@@ -59,14 +59,14 @@
                       <span class="comments-all"><a href="#">Все отзывы</a></span>
                     </span>
                     <span class="comments-right">
-                      <span class="comments-right__block"><img src="./img/heart.png" alt="asda">131</span>
-                      <span class="comments-right__block"><img src="./img/comment.png" alt="asda">14</span>
+                      <span class="comments-right__block"><img src="./img/heart.png" alt="">131</span>
+                      <span class="comments-right__block"><img src="./img/comment.png" alt="">{{comments.length}}</span>
                     </span>
                   </div>
                   <div class="comments__messages">
                     <div v-for="item in comments" :key="item.id" class="comments__message">
                       <div class="comments__message-user">
-                        <div class="comments__message-user-name">Самуил</div>
+                        <div class="comments__message-user-name">{{item.user}}</div>
                         <div class="comments__message-user-date">13 октября 2011</div>
                       </div>
                       <div class="comments__message-block">
@@ -79,7 +79,7 @@
                     <!-- <span>Ваше имя:</span>
                     <input type="text" size="20" v-model="userName"> -->
                     <div class="comments-form__textarea">
-                        <input type="text" class="comments-form__input" placeholder="Enter your name">
+                        <input type="text" class="comments-form__input" placeholder="Enter your name" v-model="userName">
                         <textarea name="comment" cols="55" rows="5" v-model="userComment"></textarea>
                         <div class="comments-form__but" @click="sendComment()">
                           <button class="comments-form__btn">
@@ -128,7 +128,7 @@ export default {
           }
           console.log('obj', obj);
           this.comments.push(obj);
-          console.log('this.comments', this.comments)
+          console.log('this.comments', this.comments.length)
         }
       }
 }
@@ -358,10 +358,7 @@ ul {
 .services {
   position: relative;
 }
-.services-title {
-  /* margin-left: 419px; */
-  /* margin-bottom: 50px; */
-}
+
 .services-container {
   display: flex;
   justify-content: flex-end;
@@ -391,7 +388,7 @@ ul {
 .service__row .service__row-name-text {
   position: absolute;
   width: 200px;
-  top: 2px;
+  top: 5px;
   left: 6px;
 }
 .service__row--second .service_row-name {
@@ -412,6 +409,7 @@ ul {
   color: #333;
   font-weight: 400;
   font-family: Arial-BoldMT;
+  padding-top: 5px;
 }
 .services-name__sum {
   color: #333333;
