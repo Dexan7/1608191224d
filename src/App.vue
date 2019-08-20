@@ -1,135 +1,166 @@
 <template>
-    <div id="app">
-        <head>
-           <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-           <link href="https://www.fontify.me/wf/5ff16b02d0b7029bd912455048e41c8d" rel="stylesheet" type="text/css">
-           <link href="https://www.fontify.me/wf/185849a866d3493f5d85548fffaca6fd" rel="stylesheet" type="text/css">
-        </head>
-        <div class="body">
-            <div class="header">
-                <div class="header-ava">
-                  <!-- <img src="img/avatar.png" alt=""> -->
+  <div id="app">
+    <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    </head>
+    <div class="body">
+      <div class="header">
+        <div class="header-ava">
+        </div>
+        <div class="header-employee">
+          <div class="header-employee__name">
+            <div><span class="header-employee__name__first-last">Вероника Ростова</span></div>
+            <span class="header-employee__name__position">Менеджер по продажам</span>
+          </div>
+          <div class="header-employee_desc">
+            <p class="header-employee_desc-text">Подберу для вас самые лучшие предложения.
+              Мои услуги абсолютно бесплатны</p>
+          </div>
+        </div>
+      </div>
+      <div class="services">
+        <div class="container">
+          <div class="services-title">
+            <div class="services-container">
+              <div class="services-container-block">
+                <div class="services-container-header">Услуг</div>
+                <div class="hr"></div>
+                <div class="service__row service__row--main">
+                  <div class="service_row-name">
+                    <div class="service__row-name-text">Ручное бронирование</div>
+                  </div>
+                  <div class="service__row-value">11</div>
                 </div>
-                <div class="header-employee">
-                    <div class="header-employee__name">
-                        <div><span class="header-employee__name__first-last">Вероника Ростова</span></div>
-                        <span class="header-employee__name__position">Менеджер по продажам</span>
-                    </div>
-                    <div class="header-employee_desc">
-                        <p class="header-employee_desc-text">Подберу для вас самые лучшие предложения.
-                          Мои услуги абсолютно бесплатны</p>
-                    </div>
+                <div class="service__row service__row--secondary service__row--second">
+                  <div class="service_row-name">
+                    <div class="service__row-name-text">Пакетные туры</div>
+                  </div>
+                  <div class="service__row-value">3</div>
                 </div>
+                <div class="service__row service__row--secondary service__row--last">
+                  <div class="service_row-name">
+                    <div class="service__row-name-text">Отели</div>
+                  </div>
+                  <div class="service__row-value">1</div>
+                </div>
+                <div class="hr"></div>
+                <div class="services-name__sum">Всего <span class="services-name__number">15</span></div>
+              </div>
             </div>
-            <div class="services">
-              <div class="container">
-                <div class="services-title">
-                  <div class="services-container">
-                    <div class="services-container-block">
-                      <div class="services-container-header">Услуг</div>
-                      <div class="hr"></div>
-                      <div class="service__row service__row--main">
-                        <div class="service_row-name">
-                          <div class="service__row-name-text">Ручное бронирование</div>
-                        </div>
-                        <div class="service__row-value">11</div>
-                      </div>
-                      <div class="service__row service__row--secondary service__row--second">
-                        <div class="service_row-name">
-                          <div class="service__row-name-text">Пакетные туры</div>
-                        </div>
-                        <div class="service__row-value">3</div>
-                      </div>
-                      <div class="service__row service__row--secondary service__row--last">
-                        <div class="service_row-name">
-                          <div class="service__row-name-text">Отели</div>
-                        </div>
-                        <div class="service__row-value">1</div>
-                      </div>
-                      <div class="hr"></div>
-                      <div class="services-name__sum">Всего <span class="services-name__number">15</span></div>
-                    </div>
-                  </div>
+          </div>
+          <div class="comments">
+            <div class="comments__amount">
+              <span class="comments-left">
+                <span class="comments-title">Последние отзывы</span>
+                <span class="comments-all"><a href="#">Все отзывы</a></span>
+              </span>
+              <span class="comments-right">
+                <span class="comments-right__block"><img src="./img/heart.png" alt="">131</span>
+                <span class="comments-right__block"><img src="./img/comment.png" alt="">{{commentsCount}}</span>
+              </span>
+            </div>
+            <div class="comments__messages">
+              <div v-for="item in comments" :key="item.id" class="comments__message">
+                <div class="comments__message-user">
+                  <div class="comments__message-user-name">{{item.user}}</div>
+                  <div class="comments__message-user-date">{{item.date}}</div>
                 </div>
-
-                <div class="comments">
-                  <div class="comments__amount">
-                    <span class="comments-left">
-                      <span class="comments-title">Последние отзывы</span>
-                      <span class="comments-all"><a href="#">Все отзывы</a></span>
-                    </span>
-                    <span class="comments-right">
-                      <span class="comments-right__block"><img src="./img/heart.png" alt="">131</span>
-                      <span class="comments-right__block"><img src="./img/comment.png" alt="">{{comments.length}}</span>
-                    </span>
-                  </div>
-                  <div class="comments__messages">
-                    <div v-for="item in comments" :key="item.id" class="comments__message">
-                      <div class="comments__message-user">
-                        <div class="comments__message-user-name">{{item.user}}</div>
-                        <div class="comments__message-user-date">13 октября 2011</div>
-                      </div>
-                      <div class="comments__message-block">
-                        {{item.text}}
-                      </div>
-                    </div>
-    
-                  </div>
-                  <div class="comments-form">
-                    <!-- <span>Ваше имя:</span>
-                    <input type="text" size="20" v-model="userName"> -->
-                    <div class="comments-form__textarea">
-                        <input type="text" class="comments-form__input" placeholder="Enter your name" v-model="userName">
-                        <textarea name="comment" cols="55" rows="5" v-model="userComment"></textarea>
-                        <div class="comments-form__but" @click="sendComment()">
-                          <button class="comments-form__btn">
-                              Написать консультанту
-                          </button>
-                        </div>
-                        <!-- <button @click="sendComment()">Написать консультанту</button></div> -->
-                    </div>
-                  </div>
+                <div class="comments__message-block">
+                  {{item.text}}
                 </div>
               </div>
             </div>
+
+            <!-- Омг, оказывается IE, не работает с firebase, но думаю использование выделенной БД и работа с асинх.запросами, важнее для тестового, поэтому, чтобы показать, 
+            что верстка не поехала, для IE просто оставлю статические комментарии-->
+            <div class="comments__messages" v-if="browser">
+              <div v-for="item in commentsIe" :key="item.id" class="comments__message">
+                <div class="comments__message-user">
+                  <div class="comments__message-user-name">{{item.user}}</div>
+                  <div class="comments__message-user-date">{{item.date}}</div>
+                </div>
+                <div class="comments__message-block">
+                  {{item.text}}
+                </div>
+              </div>
+            </div>
+            <!--  -->
+
+            <div class="comments-form">
+              <div class="comments-form__textarea">
+                <input type="text" class="comments-form__input" placeholder="Enter your name" v-model="userName">
+                <textarea name="comment" cols="55" rows="5" v-model="userComment"></textarea>
+                <div class="comments-form__but" @click="sendComment()">
+                  <button class="comments-form__btn">
+                    Написать консультанту
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
+      </div>
     </div>
+  </div>
 </template>
 
 <script>
+import * as fb from 'firebase'
 
 export default {
+  
   data () {
     return {
       userName: '',
       userComment: '',
-      comments: [
+      comments: [],
+      commentsCount: '',
+      commentsIe: [
         {
-          user: 'Alex',
-          text: 'Bla-bal-asd=asdasd=asdasd'
+          user: 'Самуил',
+          text: 'Привет, Верунь! ниче себе ты крутая. фотка класс!!!!'
         },
         {
-          user: 'Sveta',
-          text: 'Bla-bal-asd=asdasd=asdasdasdasd'
+          user: 'Лилия Семёновна',
+          text: 'Вероника, здравствуйте! Есть такой вопрос: Особый вид куниц жизненно стабилизирует кинетический момент, это и есть всемирно известный центр огранки алмазов и торговли бриллиантами?'
         },
         {
-          user: 'Ihor',
-          text: 'Bla-bal-asd=asdasd=asdasd=zxczxc-asdasd'
+          user: 'Лилия Семёновна',
+          text: 'Вероника, здравствуйте! Есть такой вопрос: Особый вид куниц жизненно стабилизирует кинетический момент?'
         }
       ],
+      browser: '',
     }
   },
+  mounted () {
+    this.getComments();
+    if (navigator.userAgent.search(/MSIE/) > 0 || navigator.userAgent.search(/NET CLR /) > 0) {this.browser = 'Internet Explorer'}
+
+  },
   methods: {
-        sendComment() {
-          console.log('test', this.userName, this.userComment)
-          let obj = {
-            user: this.userName,
-            text: this.userComment
+        async sendComment() {
+          const options = {
+            year: 'numeric',
+            month: 'long',
+            day: 'numeric',
           }
-          console.log('obj', obj);
-          this.comments.push(obj);
-          console.log('this.comments', this.comments.length)
-        }
+          let date = new Date().toLocaleString("ru", options);
+          let argComment = {
+            user: this.userName,
+            text: this.userComment,
+            date
+          }
+          await fb.database().ref('commentsDb').push(argComment)
+          await this.getComments();
+          this.userName = '';
+          this.userComment = '';
+        },
+        async getComments() {
+          const commentsDb = await fb.database().ref('commentsDb').once('value');
+          const commentsDbValue = commentsDb.val();
+          this.comments = commentsDbValue;
+          this.commentsCount = Object.keys(this.comments).length;
+        },
       }
 }
 </script>
@@ -269,13 +300,11 @@ ul {
 .body {
   margin: 30px auto;
   width: 505px;
-  /* height: 100vh; */
   box-shadow: 0 1px 6px rgba(0, 0, 0, 0.5);
   border: 1px solid rgba(0, 0, 0, 0.24);
   background-color: #ffffff;
   border-radius: 5px;
   font-family: ArialMT;
-  /* border: 1px solid black */
 }
 
 .container {
@@ -284,18 +313,14 @@ ul {
 /*  header */
 
 .header {
-  /* border: 1px solid black; */
   display: flex;
   align-content: center;
   width: 100%;
-  /* height: 121px; */
   position: relative;
   margin-bottom: 15px;
 }
 
 .header-ava {
-  /* border: 1px solid red; */
-  /* order: 1; */
   width: 120px;
   height: 121px;
   margin-top: 31px;
@@ -314,8 +339,6 @@ ul {
 }
 
 .header-employee__name__first-last {
-  /* width: 149px;
-  height: 34px; */
   color: #333333;
   font-family: Arial-BoldMT;
   font-size: 16px;
@@ -323,8 +346,6 @@ ul {
   line-height: 20px;
 }
 .header-employee__name__position {
-  /* width: 149px;
-  height: 34px; */
   color: #808080;
   font-family: ArialMT;
   font-size: 12px;
@@ -332,16 +353,11 @@ ul {
   line-height: 20px;
 }
 .header-employee_desc {
-  /* border: 1px solid yellow; */
-  /* order: 2; */
   width: 364px;
   height: 54px;
-  /* align-self: flex-end; */
-  /* margin-left: -46px; */
   border-radius: 5px;
   box-shadow: 0 0 0 1px rgba(60, 44, 0, 0.25);
   background-color: #fffbc8;
-/* background-color: #009ecf; */
   margin-left: 121px;
 }
 .header-employee_desc-text {
@@ -424,14 +440,13 @@ ul {
 }
 .hr {
   background-color: grey;
-  height: 0.5px;
+  height: 1px;
   opacity: 0.2;
   margin-top: 5px;
   margin-bottom: 10px;
 }
 /*  comments */
 .comments {
-  /* border: 1px solid black; */
   width: 100%;
   position: relative;
 }
